@@ -1,0 +1,14 @@
+{
+  "name": "expressreacttutorial",
+  "version": "1.0.0",
+  "description": "tutorial for react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JANGO",
+  "license": "ISC",
+  "dependencies": {
+    "map-reverse": "^1.0.1"
+  }
+}
