@@ -1,5 +1,7 @@
 const request = require('supertest');
 
+
+
 describe('The user API', () => {
 
 	//Specific test
@@ -17,3 +19,4 @@ describe('The user API', () => {
 			expect(res.body[0].username).toBe('administrator');
 	});
 });
+

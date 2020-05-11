@@ -40,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/api', api);
 app.use('/api/users', users);
 
+
 //Configure Passport
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());

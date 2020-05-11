@@ -4,20 +4,24 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest"
+    "start-w": "webpack-dev-server",
+    "test": "jest",
+    "clear_jest": "jest --clearCache",
+    "build-dev": "webpack --config webpack.config.js --progress --profile --colors"
   },
   "dependencies": {
+    "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^26.0.1",
-    "babel-loader": "^8.1.0",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
+    "ejs": "^2.6.2",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
+    "jsx-loader": "^0.13.2",
     "mongoose": "^5.9.13",
     "morgan": "~1.9.1",
     "node-sass": "^4.14.1",
@@ -25,12 +29,18 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "npm:@hot-loader/react-dom@^16.13.0",
+    "react-hot-loader": "^4.5.3",
     "sass-loader": "^8.0.2",
-    "webpack": "^4.43.0"
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "jest": "^26.0.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "webpack-cli": "^3.3.11"
   }
 }
