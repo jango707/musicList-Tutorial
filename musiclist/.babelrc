@@ -1,6 +1,5 @@
 {
-	"presets": ["es2017", "react"],
-	"plugins": ["react-hot-loader/babel"],
+	"presets": ["es2017", "react"],	
 	"test": [
         "jest"
     ],
