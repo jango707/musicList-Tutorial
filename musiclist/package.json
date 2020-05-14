@@ -4,17 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-w": "webpack-dev-server",
+    "start-prod": "SET NODE_ENV=production&& node ./bin/www",
     "test": "jest",
     "clear_jest": "jest --clearCache",
-    "build-dev": "webpack --config webpack.config.js --progress --profile --colors"
+    "build-prod": "SET NODE_ENV=production&&webpack -p --config webpack.config.js"
   },
   "dependencies": {
+    "availity-reactstrap-validation": "^2.6.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^26.0.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "bootstrap": "^4.4.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -25,6 +27,7 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
     "jsx-loader": "^0.13.2",
+    "mailgun-js": "^0.22.0",
     "mini-css-extract-plugin": "^0.9.0",
     "mongoose": "^5.9.13",
     "morgan": "~1.9.1",
@@ -46,11 +49,14 @@
     "redux-devtools-dock-monitor": "^1.1.3",
     "redux-devtools-log-monitor": "^1.4.0",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

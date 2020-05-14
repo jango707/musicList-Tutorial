@@ -1,7 +1,0 @@
-{
-	"presets": ["es2017", "react"],	
-	"test": [
-        "jest"
-    ],
-
-}

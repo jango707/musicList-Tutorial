@@ -1,16 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { checkSession } from '../actions/authentication';
+
 import Template from './Template';
 
-function TemplateContainer(props){
-	return(
-		<Template progress={props.progress} />
-	);
+class TemplateContainer extends React.Component {
+	constructor(props) {
+		super(props);
+
+		//bind functions
+		this.checkUserSession = this.checkUserSession.bind(this);
+	}
+
+	componentWillMount() {
+		//before component mounts, check for an existing user session
+		this.checkUserSession();
+	}
+
+	checkUserSession() {
+		const { dispatch } = this.props;
+		dispatch(checkSession());
+	}
+
+	render() {
+		const { authentication, progress } = this.props;
+		return(
+			<Template progress={progress} authentication={authentication} />
+		);
+	}
 }
 
 function mapStateToProps(state) {
 	return {
 		progress: state.progress,
+		authentication: state.authentication,
 	};
 }
 
