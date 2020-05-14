@@ -1,4 +1,5 @@
 require('babel-register');
+const appConfig = require('./config.js');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -8,7 +9,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const expressSession = require('express-session')({
-	secret: 'random strings here are good',
+	secret: appConfig.expressSession.secret,
 	resave: false,
 	saveUninitialized: false
 

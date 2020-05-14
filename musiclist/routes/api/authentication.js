@@ -1,8 +1,9 @@
+const appConfig = require('../../config.js');
 const crypto = require('crypto');
 const express = require('express');
 const mailgun = require('mailgun-js')({
-  apiKey: 'a636a1dd6b35962c6783a1938a16059c-3e51f8d2-7bf9b606',
-  domain: 'sandbox3c89ed5ee4e04ec3a61492bd9ebe121f.mailgun.org',
+    apiKey: appConfig.mailgun.apiKey,
+    domain: appConfig.mailgun.domain,
 });
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -124,7 +125,7 @@ router.post('/saveresethash', async (req, res) => {
     // If the user exists, save their password hash
     const timeInMs = Date.now();
     const hashString = `${req.body.email}${timeInMs}`;
-    const secret = 'alongrandomstringshouldgohere';
+    const secret = appConfig.crypto.secret;
     const hash = crypto.createHmac('sha256', secret)
                        .update(hashString)
                        .digest('hex');
@@ -135,7 +136,7 @@ router.post('/saveresethash', async (req, res) => {
       
         // Put together the email
       const emailData = {
-       	from: 'JANGO <postmaster@sandbox3c89ed5ee4e04ec3a61492bd9ebe121f.mailgun.org>',
+       	from: `JANGO <postmaster@${appConfig.mailgun.domain}>`,
         to: foundUser.email,
         subject: 'Reset Your Password',
         text: `A password reset has been requested for the MusicList account connected to this email address. If you made this request, please click the following link: http://localhost:3000/account/change-password/${foundUser.passwordReset} ... if you didn't make this request, feel free to ignore it!`,
